@@ -1,4 +1,3 @@
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
@@ -375,5 +374,5 @@ System.out.println("7. Salir");
         System.out.println("Error al buscar caninos: " + e.getMessage());
     }
   }
-  
+
 }
