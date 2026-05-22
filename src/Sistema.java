@@ -92,7 +92,7 @@ public class Sistema {
             FileWriter fw = new FileWriter(ARCHIVO_CLIENTES, true);
             BufferedWriter bw = new BufferedWriter(fw);
 
-            bw.write(nombre + "," + cedula + "," + telefono + "," + direccion + "," + correo);
+            bw.write(nombre + ";" + cedula + ";" + telefono + ";" + direccion + ";" + correo);
 
             bw.newLine();
 
@@ -124,7 +124,7 @@ public class Sistema {
 
             while ((linea = brClientes.readLine()) != null) {
 
-                String[] datos = linea.split(",");
+                String[] datos = linea.split(";");
 
                 if (datos[1].equals(cedulaBuscar)) {
 
@@ -162,7 +162,7 @@ public class Sistema {
 
             BufferedWriter bw = new BufferedWriter(fw);
 
-            bw.write(nombre + "," + raza + "," + edad + "," + peso + "," + enfermedad + "," + nombreDuenio);
+            bw.write(nombre + ";" + raza + ";" + edad + ";" + peso + ";" + enfermedad + ";" + nombreDuenio);
 
             bw.newLine();
 
@@ -221,7 +221,7 @@ public class Sistema {
 
             while ((linea = br.readLine()) != null) {
 
-                String[] datos = linea.split(",");
+                String[] datos = linea.split(";");
 
                 Canino canino = new Canino(
                     datos[0],
