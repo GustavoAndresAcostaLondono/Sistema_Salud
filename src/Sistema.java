@@ -83,18 +83,14 @@ public class Sistema {
             FileWriter fw = new FileWriter(ARCHIVO_CLIENTES, true);
             BufferedWriter bw = new BufferedWriter(fw);
 
-            bw.write(nombre + "," +
-                    cedula + "," +
-                    telefono + "," +
-                    direccion + "," +
-                    correo);
+            bw.write(nombre + "," + cedula + "," + telefono + "," + direccion + "," + correo);
 
             bw.newLine();
 
             bw.close();
 
             System.out.println("Cliente registrado correctamente.");
-
+        
         } catch (IOException e) {
 
             System.out.println("Error al guardar cliente.");
