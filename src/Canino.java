@@ -28,8 +28,8 @@ public class Canino {
 
         return "Canino: " + nombre +
                " | Raza: " + raza +
-               " | Edad: " + edad + "años" +
-               " | Peso: " + peso + "kg" +
+               " | Edad: " + edad + " años" +
+               " | Peso: " + peso + " kg" +
                " | Enfermedad: " + enfermedad +
                " | Dueño: " + duenio;
     }
