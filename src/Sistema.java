@@ -25,7 +25,7 @@ public class Sistema {
             System.out.println("4. Consultar caninos");
             System.out.println("5. Buscar cliente por cedula");
             System.out.println("6. Buscar caninos por cedula del dueño");
-System.out.println("7. Salir");
+            System.out.println("7. Salir");
 
             System.out.print("Seleccione una opcion: ");
             opcion = sc.nextInt();
@@ -118,9 +118,7 @@ System.out.println("7. Salir");
             boolean clienteExiste = false;
             String nombreDuenio = "";
 
-            BufferedReader brClientes =
-                    new BufferedReader(
-                            new FileReader(ARCHIVO_CLIENTES));
+            BufferedReader brClientes = new BufferedReader(new FileReader(ARCHIVO_CLIENTES));
 
             String linea;
 
@@ -160,18 +158,11 @@ System.out.println("7. Salir");
             System.out.print("Enfermedad: ");
             String enfermedad = sc.nextLine();
 
-            FileWriter fw =
-                    new FileWriter(ARCHIVO_CANINOS, true);
+            FileWriter fw = new FileWriter(ARCHIVO_CANINOS, true);
 
-            BufferedWriter bw =
-                    new BufferedWriter(fw);
+            BufferedWriter bw = new BufferedWriter(fw);
 
-            bw.write(nombre + "," +
-                    raza + "," +
-                    edad + "," +
-                    peso + "," +
-                    enfermedad + "," +
-                    nombreDuenio);
+            bw.write(nombre + "," + raza + "," + edad + "," + peso + "," + enfermedad + "," + nombreDuenio);
 
             bw.newLine();
 
@@ -189,9 +180,7 @@ System.out.println("7. Salir");
 
         try {
 
-            BufferedReader br =
-                    new BufferedReader(
-                            new FileReader(ARCHIVO_CLIENTES));
+            BufferedReader br = new BufferedReader(new FileReader(ARCHIVO_CLIENTES));
 
             String linea;
 
@@ -202,11 +191,11 @@ System.out.println("7. Salir");
                 String[] datos = linea.split(",");
 
                 Cliente cliente = new Cliente(
-                        datos[0],
-                        datos[1],
-                        datos[2],
-                        datos[3],
-                        datos[4]
+                    datos[0],
+                    datos[1],
+                    datos[2],
+                    datos[3],
+                    datos[4]
                 );
 
                 System.out.println(cliente);
@@ -294,7 +283,7 @@ System.out.println("7. Salir");
         }
     
     } catch (IOException e) {
-
+        
         System.out.println("Error al buscar cliente: " + e.getMessage());
     }
   }
@@ -309,8 +298,7 @@ System.out.println("7. Salir");
         String nombreDuenio = "";
         boolean duenioExiste = false;
 
-        BufferedReader brClientes = new BufferedReader(
-                new FileReader(ARCHIVO_CLIENTES));
+        BufferedReader brClientes = new BufferedReader(new FileReader(ARCHIVO_CLIENTES));
 
         String linea;
 
@@ -334,8 +322,7 @@ System.out.println("7. Salir");
             return;
         }
 
-        BufferedReader brCaninos = new BufferedReader(
-                new FileReader(ARCHIVO_CANINOS));
+        BufferedReader brCaninos = new BufferedReader(new FileReader(ARCHIVO_CANINOS));
 
         boolean encontrados = false;
 
@@ -349,12 +336,12 @@ System.out.println("7. Salir");
             if (datos[5].equals(nombreDuenio)) {
 
                 Canino canino = new Canino(
-                        datos[0],
-                        datos[1],
-                        Integer.parseInt(datos[2]),
-                        Double.parseDouble(datos[3]),
-                        datos[4],
-                        datos[5]
+                    datos[0],
+                    datos[1],
+                    Integer.parseInt(datos[2]),
+                    Double.parseDouble(datos[3]),
+                    datos[4],
+                    datos[5]
                 );
 
                 System.out.println(canino);

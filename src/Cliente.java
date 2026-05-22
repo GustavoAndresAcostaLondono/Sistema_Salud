@@ -7,25 +7,25 @@ public class Cliente {
     private String correo;
 
     public Cliente(String nombre,
-                   String cedula,
-                   String telefono,
-                   String direccion,
-                   String correo) {
+        String cedula,
+        String telefono,
+        String direccion,
+        String correo) {
 
-        this.nombre = nombre;
-        this.cedula = cedula;
-        this.telefono = telefono;
-        this.direccion = direccion;
-        this.correo = correo;
+            this.nombre = nombre;
+            this.cedula = cedula;
+            this.telefono = telefono;
+            this.direccion = direccion;
+            this.correo = correo;
     }
 
     @Override
     public String toString() {
 
         return "Nombre: " + nombre +
-                " | Cedula: " + cedula +
-                " | Telefono: " + telefono +
-                " | Direccion: " + direccion +
-                " | Correo: " + correo;
+               " | Cedula: " + cedula +
+               " | Telefono: " + telefono +
+               " | Direccion: " + direccion +
+               " | Correo: " + correo;
     }
 }
