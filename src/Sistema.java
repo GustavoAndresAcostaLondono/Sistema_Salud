@@ -80,6 +80,30 @@ public class Sistema {
             System.out.print("Cedula: ");
             String cedula = sc.nextLine();
 
+            BufferedReader br = new BufferedReader(new FileReader(ARCHIVO_CLIENTES));
+
+            String linea;
+            boolean existe = false;
+
+            while ((linea = br.readLine()) != null) {
+
+                String[] datos = linea.split(";");
+
+                if (datos[1].equals(cedula)) {
+
+                    existe = true;
+                    break;
+                }
+            }
+
+            br.close();
+
+            if (existe) {
+
+                System.out.println("Ya existe un cliente con esa cedula.");
+                return;
+            }
+
             System.out.print("Telefono: ");
             String telefono = sc.nextLine();
 
@@ -148,10 +172,10 @@ public class Sistema {
             System.out.print("Raza: ");
             String raza = sc.nextLine();
 
-            System.out.print("Edad: ");
+            System.out.print("Edad (años): ");
             int edad = sc.nextInt();
 
-            System.out.print("Peso: ");
+            System.out.print("Peso (kg): ");
             double peso = sc.nextDouble();
             sc.nextLine();
 

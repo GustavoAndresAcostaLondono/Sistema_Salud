@@ -1,1 +1,4 @@
 Goku;416;3428473923;Japon;Saiyan@gmail.com
+Gustavo;1129805194;43534444;Robledo;Gustav@gmail.com
+Seanpaul Stiven Garcia Zuluaga;473;2344944;Castilla;Manito@gmail.com
+Javier;34555665;3224569843;Robledo Bello Horizonte;Javier@gmail.com
