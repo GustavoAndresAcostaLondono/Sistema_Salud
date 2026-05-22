@@ -1,2 +1,2 @@
-Gustavo Acosta,1129805194,3226460294,Robledo,Gustaco@gmail.com
-Seanpaul,5074839,3015614116,Castilla,Seanpaul@gmail.com
+Gustavo Acosta;1129805194;32354655;Robledo Bello Horizonte;Gustav@gmail.com
+Seanpaul;50478829;3256940385;Castilla;Manito@gmail.com

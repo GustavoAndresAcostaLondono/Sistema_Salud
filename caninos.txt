@@ -1,2 +1,3 @@
-Kabal,Lobo,4,56.0,Ni idea para eso vine,Gustavo Acosta
-Kon,Pastor Aleman,2,35.0,Parasitos,Gustavo Acosta
+Kabal;Lobo;4;32.0;Parasitos;Gustavo Acosta
+Kon;pastor aleman;3;23.0;Revisi�n;Gustavo Acosta
+Pool;perro salchicha;2;18.0;Lombrises;Seanpaul
