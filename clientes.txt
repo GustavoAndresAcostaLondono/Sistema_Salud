@@ -1,2 +1,1 @@
-Gustavo Acosta;1129805194;32354655;Robledo Bello Horizonte;Gustav@gmail.com
-Seanpaul;50478829;3256940385;Castilla;Manito@gmail.com
+Goku;416;3428473923;Japon;Saiyan@gmail.com

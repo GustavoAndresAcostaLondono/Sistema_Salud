@@ -188,7 +188,7 @@ public class Sistema {
 
             while ((linea = br.readLine()) != null) {
 
-                String[] datos = linea.split(",");
+                String[] datos = linea.split(";");
 
                 Cliente cliente = new Cliente(
                     datos[0],
