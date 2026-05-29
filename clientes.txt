@@ -3,3 +3,5 @@ Gustavo;1129805194;43534444;Robledo;Gustav@gmail.com
 Seanpaul Stiven Garcia Zuluaga;473;2344944;Castilla;Manito@gmail.com
 Javier;34555665;3224569843;Robledo Bello Horizonte;Javier@gmail.com
 Gohan;345;32455;Japon;Gohanda@gmail.com
+Megatron;455;323454444;Cybertron;Decepticopn@gmail.com
+Juan;234;322456373;Robledo;Juan@gmail.com

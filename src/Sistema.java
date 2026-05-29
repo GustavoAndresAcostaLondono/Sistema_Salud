@@ -24,12 +24,24 @@ public class Sistema {
             System.out.println("3. Consultar clientes");
             System.out.println("4. Consultar caninos");
             System.out.println("5. Buscar cliente por cedula");
-            System.out.println("6. Buscar caninos por cedula del dueño");
-            System.out.println("7. Salir");
+            System.out.println("6. Buscar caninos por ID");
+            System.out.println("7. Buscar caninos por servicio");
+            System.out.println("8. Buscar caninos por cedula del dueño");
+            System.out.println("9. Salir");
 
-            System.out.print("Seleccione una opcion: ");
-            opcion = sc.nextInt();
-            sc.nextLine();
+            while (true) {
+                
+                try {
+                    
+                    System.out.print("Seleccione una opcion: ");
+                    opcion = Integer.parseInt(sc.nextLine());
+                    break;
+                
+                } catch (NumberFormatException e) {
+                    
+                    System.out.println("Ingrese un numero valido.");
+                }
+            }
 
             switch (opcion) {
 
@@ -54,10 +66,18 @@ public class Sistema {
                     break;
                     
                 case 6:
-                    buscarCaninosPorDuenio();
+                    buscarCaninoPorId();
                     break;
                     
                 case 7:
+                    buscarCaninosPorServicio();
+                    break;
+                    
+                case 8:
+                    buscarCaninosPorDuenio();
+                    break;
+                    
+                case 9:
                     System.out.println("Saliendo del sistema...");
                     break;
 
@@ -65,7 +85,7 @@ public class Sistema {
                     System.out.println("Opcion invalida.");
             }
 
-        } while (opcion != 7);
+        } while (opcion != 9);
     }
 
     public void registrarCliente() {
@@ -140,7 +160,6 @@ public class Sistema {
             String cedulaBuscar = sc.nextLine();
 
             boolean clienteExiste = false;
-            String nombreDuenio = "";
 
             BufferedReader brClientes = new BufferedReader(new FileReader(ARCHIVO_CLIENTES));
 
@@ -153,7 +172,6 @@ public class Sistema {
                 if (datos[1].equals(cedulaBuscar)) {
 
                     clienteExiste = true;
-                    nombreDuenio = datos[0];
                     break;
                 }
             }
@@ -166,27 +184,67 @@ public class Sistema {
                 return;
             }
 
+            BufferedReader brId = new BufferedReader(new FileReader(ARCHIVO_CANINOS));
+            
+            int contador = 1;
+            
+            while (brId.readLine() != null) {
+                contador++;
+            }
+            
+            brId.close();
+            
+            String idCanino = "CAN" + contador;
+
             System.out.print("Nombre del canino: ");
             String nombre = sc.nextLine();
 
             System.out.print("Raza: ");
             String raza = sc.nextLine();
 
-            System.out.print("Edad (años): ");
-            int edad = sc.nextInt();
+            int edad;
+            
+            while (true) {
 
-            System.out.print("Peso (kg): ");
-            double peso = sc.nextDouble();
-            sc.nextLine();
+                try {
+                    
+                    System.out.print("Edad (años): ");
+                    edad = Integer.parseInt(sc.nextLine());
+                    break;
+
+                } catch (NumberFormatException e) {
+                    
+                    System.out.println("Ingrese un numero valido.");
+                }
+            }
+            
+            double peso;
+            
+            while (true) {
+                
+                try {
+                    
+                    System.out.print("Peso (kg): ");
+                    peso = Double.parseDouble(sc.nextLine());
+                    break;
+                
+                } catch (NumberFormatException e) {
+                    
+                    System.out.println("Ingrese un numero valido.");
+                }
+            }
 
             System.out.print("Enfermedad: ");
             String enfermedad = sc.nextLine();
+
+            System.out.print("Tipo de servicio: ");
+            String tipoServicio = sc.nextLine();
 
             FileWriter fw = new FileWriter(ARCHIVO_CANINOS, true);
 
             BufferedWriter bw = new BufferedWriter(fw);
 
-            bw.write(nombre + ";" + raza + ";" + edad + ";" + peso + ";" + enfermedad + ";" + nombreDuenio);
+            bw.write(idCanino + ";" + nombre + ";" + raza + ";" + edad + ";" + peso + ";" + enfermedad + ";" + tipoServicio + ";" + cedulaBuscar);
 
             bw.newLine();
 
@@ -250,10 +308,12 @@ public class Sistema {
                 Canino canino = new Canino(
                     datos[0],
                     datos[1],
-                    Integer.parseInt(datos[2]),
-                    Double.parseDouble(datos[3]),
-                    datos[4],
-                    datos[5]
+                    datos[2],
+                    Integer.parseInt(datos[3]),
+                    Double.parseDouble(datos[4]),
+                    datos[5],
+                    datos[6],
+                    datos[7]
                 );
 
                 System.out.println(canino);
@@ -311,8 +371,111 @@ public class Sistema {
         System.out.println("Error al buscar cliente: " + e.getMessage());
     }
   }
- 
-    public void buscarCaninosPorDuenio() {
+
+
+  public void buscarCaninoPorId() {
+
+    try {
+
+        System.out.print("\nIngrese el ID del canino: ");
+        String idBuscar = sc.nextLine();
+
+        BufferedReader br = new BufferedReader(new FileReader(ARCHIVO_CANINOS));
+
+        String linea;
+        boolean encontrado = false;
+
+        while ((linea = br.readLine()) != null) {
+
+            String[] datos = linea.split(";");
+
+            if (datos[0].equalsIgnoreCase(idBuscar)) {
+
+                Canino canino = new Canino(
+                    datos[0],
+                    datos[1],
+                    datos[2],
+                    Integer.parseInt(datos[3]),
+                    Double.parseDouble(datos[4]),
+                    datos[5],
+                    datos[6],
+                    datos[7]
+                );
+
+                System.out.println("\n===== CANINO ENCONTRADO =====");
+                System.out.println(canino);
+
+                encontrado = true;
+                break;
+            }
+        }
+
+        br.close();
+
+        if (!encontrado) {
+
+            System.out.println("No existe un canino con ese ID.");
+        }
+
+    } catch (IOException e) {
+
+        System.out.println("Error al buscar canino.");
+    }
+ }
+
+
+ public void buscarCaninosPorServicio() {
+
+    try {
+
+        System.out.print("\nIngrese el tipo de servicio: ");
+        String servicioBuscar = sc.nextLine();
+
+        BufferedReader br = new BufferedReader(new FileReader(ARCHIVO_CANINOS));
+
+        String linea;
+        boolean encontrados = false;
+
+        System.out.println("\n===== CANINOS CON ESE SERVICIO =====");
+
+        while ((linea = br.readLine()) != null) {
+
+            String[] datos = linea.split(";");
+
+            if (datos[6].equalsIgnoreCase(servicioBuscar)) {
+
+                Canino canino = new Canino(
+                    datos[0],
+                    datos[1],
+                    datos[2],
+                    Integer.parseInt(datos[3]),
+                    Double.parseDouble(datos[4]),
+                    datos[5],
+                    datos[6],
+                    datos[7]
+                );
+
+                System.out.println(canino);
+
+                encontrados = true;
+            }
+        }
+
+        br.close();
+
+        if (!encontrados) {
+
+            System.out.println("No hay caninos con ese servicio.");
+        }
+
+    } catch (IOException e) {
+
+        System.out.println("Error al buscar por servicio.");
+    }
+ }
+
+
+ public void buscarCaninosPorDuenio() {
 
     try {
 
@@ -357,15 +520,17 @@ public class Sistema {
 
             String[] datos = linea.split(";");
 
-            if (datos[5].equals(nombreDuenio)) {
+            if (datos[7].equals(cedulaBuscar)) {
 
                 Canino canino = new Canino(
                     datos[0],
                     datos[1],
-                    Integer.parseInt(datos[2]),
-                    Double.parseDouble(datos[3]),
-                    datos[4],
-                    datos[5]
+                    datos[2],
+                    Integer.parseInt(datos[3]),
+                    Double.parseDouble(datos[4]),
+                    datos[5],
+                    datos[6],
+                    datos[7]
                 );
 
                 System.out.println(canino);

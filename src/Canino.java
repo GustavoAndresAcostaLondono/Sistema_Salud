@@ -1,36 +1,44 @@
 public class Canino {
 
+    private String idCanino;
     private String nombre;
     private String raza;
     private int edad;
     private double peso;
     private String enfermedad;
-    private String duenio;
+    private String tipoServicio;
+    private String cedulaDuenio;
 
     public Canino(
+        String idCanino,
         String nombre,
         String raza,
         int edad,
         double peso,
         String enfermedad,
-        String duenio) {
+        String tipoServicio,
+        String cedulaDuenio) {
 
+            this.idCanino = idCanino;
             this.nombre = nombre;
             this.raza = raza;
             this.edad = edad;
             this.peso = peso;
             this.enfermedad = enfermedad;
-            this.duenio = duenio;
+            this.tipoServicio = tipoServicio;
+            this.cedulaDuenio = cedulaDuenio;
     }
 
     @Override
     public String toString() {
 
-        return "Canino: " + nombre +
+        return "ID: " + idCanino +
+               " | Canino: " + nombre +
                " | Raza: " + raza +
                " | Edad: " + edad + " años" +
                " | Peso: " + peso + " kg" +
                " | Enfermedad: " + enfermedad +
-               " | Dueño: " + duenio;
+               " | Tipo de Servicio: " + tipoServicio +
+               " | Cédula del Dueño: " + cedulaDuenio;
     }
-}
+} 
