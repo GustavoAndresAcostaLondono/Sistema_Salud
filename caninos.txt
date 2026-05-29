@@ -1,0 +1,4 @@
+CAN1;Kabal;Lobo;2;32.0;Ninguna;Ba�o;1129805194
+CAN2;Kon;Pastor Aleman;4;33.0;Ninguna;Revisi�n medica;1129805194
+CAN3;Kabal;Lobo;2;32.0;Ninguna;Revisarlo;1129805194
+CAN4;Artemis;Pastor aleman;4;42.0;Parasitos;Desparacitacion;455
